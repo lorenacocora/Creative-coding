@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 995.0, 85.0, 672.0, 912.0 ],
+		"rect" : [ 34.0, 85.0, 1464.0, 921.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -40,38 +40,13 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
-					"basictuning" : 440,
-					"data" : 					{
-						"clips" : [ 							{
-								"absolutepath" : "D:/ITPMA/Creative-coding/Media/mp3s/absurdity.mp3",
-								"filename" : "absurdity.mp3",
-								"filekind" : "audiofile",
-								"id" : "u965000304",
-								"selection" : [ 0.0, 1.0 ],
-								"loop" : 0,
-								"content_state" : 								{
-
-								}
-
-							}
- ]
-					}
-,
-					"followglobaltempo" : 0,
-					"formantcorrection" : 0,
-					"id" : "obj-4",
-					"maxclass" : "playlist~",
-					"mode" : "basic",
+					"id" : "obj-1",
+					"maxclass" : "newobj",
 					"numinlets" : 1,
-					"numoutlets" : 5,
-					"originallength" : [ 0.0, "ticks" ],
-					"originaltempo" : 120.0,
-					"outlettype" : [ "signal", "signal", "signal", "", "dictionary" ],
-					"parameter_enable" : 0,
-					"patching_rect" : [ 1141.0, 892.0, 150.0, 30.0 ],
-					"pitchcorrection" : 0,
-					"quality" : "basic",
-					"timestretch" : [ 0 ]
+					"numoutlets" : 2,
+					"outlettype" : [ "int", "" ],
+					"patching_rect" : [ 495.0, 268.0, 86.0, 22.0 ],
+					"text" : "serial i 115200"
 				}
 
 			}
@@ -187,18 +162,6 @@
 			}
 , 			{
 				"box" : 				{
-					"id" : "obj-1",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 2,
-					"outlettype" : [ "int", "" ],
-					"patching_rect" : [ 495.0, 268.0, 86.0, 22.0 ],
-					"text" : "serial i 115200"
-				}
-
-			}
-, 			{
-				"box" : 				{
 					"id" : "obj-29",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
@@ -309,49 +272,49 @@
 		"dependency_cache" : [ 			{
 				"name" : "42.mp3",
 				"bootpath" : "D:/ITPMA/Creative-coding/Media/mp3s",
-				"patcherrelativepath" : "../Media/mp3s",
+				"patcherrelativepath" : "../../Media/mp3s",
 				"type" : "Mp3",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "absurdity.mp3",
 				"bootpath" : "D:/ITPMA/Creative-coding/Media/mp3s",
-				"patcherrelativepath" : "../Media/mp3s",
+				"patcherrelativepath" : "../../Media/mp3s",
 				"type" : "Mp3",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "brujas.mp3",
 				"bootpath" : "D:/ITPMA/Creative-coding/Media/mp3s",
-				"patcherrelativepath" : "../Media/mp3s",
+				"patcherrelativepath" : "../../Media/mp3s",
 				"type" : "Mp3",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "intro.mp3",
 				"bootpath" : "D:/ITPMA/Creative-coding/Media/mp3s",
-				"patcherrelativepath" : "../Media/mp3s",
+				"patcherrelativepath" : "../../Media/mp3s",
 				"type" : "Mp3",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "mars.mp3",
 				"bootpath" : "D:/ITPMA/Creative-coding/Media/mp3s",
-				"patcherrelativepath" : "../Media/mp3s",
+				"patcherrelativepath" : "../../Media/mp3s",
 				"type" : "Mp3",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "scream-with-joy.mp3",
 				"bootpath" : "D:/ITPMA/Creative-coding/Media/mp3s",
-				"patcherrelativepath" : "../Media/mp3s",
+				"patcherrelativepath" : "../../Media/mp3s",
 				"type" : "Mp3",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "varule.mp3",
 				"bootpath" : "D:/ITPMA/Creative-coding/Media/mp3s",
-				"patcherrelativepath" : "../Media/mp3s",
+				"patcherrelativepath" : "../../Media/mp3s",
 				"type" : "Mp3",
 				"implicit" : 1
 			}

@@ -1,10 +1,7 @@
 #include <Adafruit_NeoPixel.h>
-#include <HCSR04.h>
 #define LED_PIN 8
 #define LED_COUNT 11
 Adafruit_NeoPixel strip(LED_COUNT, LED_PIN, NEO_GRB + NEO_KHZ800);
-byte echoPin = 11;
-byte triggerPin = 10;
 
 int pinAlb = A0;
 int pinMov = A1;
@@ -28,76 +25,56 @@ int albastruValue = 0;
 int verdeValue = 0;
 int galbenValue = 0;
 int portocaliuValue = 0;
-int albValuePrev = 0;
-int movValuePrev = 0;
-int albastruValuePrev = 0;
-int verdeValuePrev = 0;
-int galbenValuePrev = 0;
-int portocaliuValuePrev = 0;
 
 String state = "standBy";
 int counter = 0;
-bool firstTime = true;
 
 void setup() {
   Serial.begin(9600);
-  HCSR04.begin(triggerPin, echoPin);
   strip.begin();
-  strip.setBrightness(100);
+  strip.setBrightness(20);
 }
 
 void loop() {
-  albValuePrev = albValue;
   albValue = analogRead(pinAlb);
-  movValuePrev = movValue;
   movValue = analogRead(pinMov);
-  albastruValuePrev = albastruValue;
   albastruValue = analogRead(pinAlbastru);
-  verdeValuePrev = verdeValue;
   verdeValue = analogRead(pinVerde);
-  galbenValuePrev = galbenValue;
   galbenValue = analogRead(pinGalben);
-  portocaliuValuePrev = portocaliuValue;
   portocaliuValue = analogRead(pinPortocaliu);
 
-  if (albValue < albValuePrev*3/4 && state != 'alb') {
+  if (albValue < 65 && state != 'alb') {
     state = "alb";
     openEyes(ledAlb, strip.Color(255, 0, 0));
+    Serial.write(albValue);
     counter = 0;
-  } else if (movValue < movValuePrev*3/4 && state != "mov") {
+  } else if (movValue < 65 && state != "mov") {
     state = "mov";
     openEyes(ledMov, strip.Color(255, 0, 0));
+    Serial.write(movValue);
     counter = 0;
-  } else if (albastruValue < albastruValuePrev*3/4 && state != "albastru") {
+  } else if (albastruValue < 65 && state != "albastru") {
     state = "albastru";
     openEyes(ledAlbastru, strip.Color(255, 0, 0));
+    Serial.write(albastruValue);
     counter = 0;
-  } else if (verdeValue < verdeValuePrev*3/4 && state != "verde") {
+  } else if (verdeValue < 65 && state != "verde") {
     state = "verde";
     openEyes(ledVerde, strip.Color(255, 0, 0));
+    // Serial.write(verdeValue);
+    Serial.println("plang 20");
     counter = 0;
-  } else if (galbenValue < galbenValuePrev*3/4 && state != "galben") {
+  } else if (galbenValue < 65 && state != "galben") {
     state = "galben";
     openEyes(ledGalben, strip.Color(255, 0, 0));
+    Serial.write(galbenValue);
     counter = 0;
-  } else if (portocaliuValue < portocaliuValuePrev*3/4 && state != "portocaliu") {
+  } else if (portocaliuValue < 65 && state != "portocaliu") {
     state = "portocaliu";
     openEyes(ledPortocaliu, strip.Color(255, 0, 0));
+    Serial.write(portocaliuValue);
     counter = 0;
   }
-
-  Serial.print("alb ");
-  Serial.println(albValue);
-  Serial.print("mov ");
-  Serial.println(movValue);
-  Serial.print("albastru ");
-  Serial.println(albastruValue);
-  Serial.print("verde ");
-  Serial.println(verdeValue);
-  Serial.print("galben ");
-  Serial.println(galbenValue);
-  Serial.print("portocaliu ");
-  Serial.println(portocaliuValue);
 
   // debugSensors();
 
@@ -106,20 +83,21 @@ void loop() {
   } else {
     counter++;
   }
-
-  if ((state != "standBy" && counter > 9)) {
-    state = "standBy";
+  
+  if(counter > 10)
+  {
+    state="standBy";
   }
 
-  delay(500);
+  delay(1000);
 }
 
 void colorStandby() {
   colorWithSensorColor();
-  delay(1000);
+  delay(500);
   strip.clear();
   strip.show();
-  delay(100);
+  delay(500);
 }
 
 void setSensorColor(int index, uint32_t color) {
@@ -168,5 +146,5 @@ void debugSensors() {
   Serial.print("State: ");
   Serial.println(state);
   Serial.println("----------------------------------------");
-  delay(200);
+  delay(1000);
 }

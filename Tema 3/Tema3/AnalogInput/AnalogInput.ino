@@ -61,27 +61,27 @@ void loop() {
     openEyes(ledAlb, strip.Color(255, 0, 0));
     Serial.write(1);
     counter = 0;
-  } else if (movValue < 250 && state != "mov") {
+  } else if (movValue < 65 && state != "mov") {
     state = "mov";
     openEyes(ledMov, strip.Color(255, 0, 0));
     Serial.write(2);
     counter = 0;
-  } else if (albastruValue < 500 && state != "albastru") {
+  } else if (albastruValue < 65 && state != "albastru") {
     state = "albastru";
     openEyes(ledAlbastru, strip.Color(255, 0, 0));
     Serial.write(3);
     counter = 0;
-  } else if (verdeValue < 300 && state != "verde") {
+  } else if (verdeValue < 65 && state != "verde") {
     state = "verde";
     openEyes(ledVerde, strip.Color(255, 0, 0));
     Serial.write(4);
     counter = 0;
-  } else if (galbenValue < 450 && state != "galben") {
+  } else if (galbenValue < 65 && state != "galben") {
     state = "galben";
     openEyes(ledGalben, strip.Color(255, 0, 0));
     Serial.write(5);
     counter = 0;
-  } else if (portocaliuValue < 300 && state != "portocaliu") {
+  } else if (portocaliuValue < 65 && state != "portocaliu") {
     state = "portocaliu";
     openEyes(ledPortocaliu, strip.Color(255, 0, 0));
     Serial.write(6);
